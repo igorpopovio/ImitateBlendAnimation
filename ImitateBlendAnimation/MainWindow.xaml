@@ -20,34 +20,41 @@
                       DataType="{x:Type local:WorkSet}">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="100" />
+                    <RowDefinition Height="60" />
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                <Grid>
+                <Grid Background="#FF4E4473">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="Auto" />
                         <ColumnDefinition />
-                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <Button Content="Remove Set" />
+                    <Button Background="#FF7F77A4"
+                            Width="20"
+                            Height="5"
+                            Margin="10" />
                     <TextBlock Grid.Column="1"
                                Text="Set #1"
                                Foreground="#FFA69CC7"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                FontWeight="Bold"
-                               FontSize="36" />
+                               FontSize="20" />
                     <CheckBox Grid.Column="2"
                               HorizontalAlignment="Center"
                               VerticalAlignment="Center"
                               Style="{DynamicResource RoundCheckBoxStyle}"
                               Background="Transparent"
+                              Margin="10"
                               BorderBrush="White"
                               BorderThickness="1.5" />
                 </Grid>
                 <StackPanel Grid.Row="1"
-                            HorizontalAlignment="Stretch">
+                            Margin="0,0,0,5"
+                            HorizontalAlignment="Stretch"
+                            Background="#FF443A66">
                     <StackPanel Orientation="Horizontal"
+                                Margin="0,10"
                                 HorizontalAlignment="Center">
                         <TextBlock Text="{Binding Mass}"
                                    VerticalAlignment="Bottom"
@@ -62,6 +69,7 @@
                                    FontSize="16" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal"
+                                Margin="0,10"
                                 HorizontalAlignment="Center">
                         <TextBlock Text="{Binding Reps}"
                                    VerticalAlignment="Bottom"
@@ -79,12 +87,14 @@
             </Grid>
         </DataTemplate>
     </Window.Resources>
-    <Grid>
+    <Grid Margin="5">
         <ListView x:Name="listView"
                   ItemsSource="{Binding Sets}"
                   ItemTemplate="{DynamicResource WorkSetTemplateKey}"
                   HorizontalContentAlignment="Stretch"
-                  Background="Transparent" />
+                  BorderThickness="0"
+                  Background="Transparent"
+                  ScrollViewer.VerticalScrollBarVisibility="Hidden" />
         <Image Margin="-1014.338,0,525.073,-31"
                Source="blend-animation.gif"
                Stretch="Fill" />
