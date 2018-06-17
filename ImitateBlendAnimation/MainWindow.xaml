@@ -8,7 +8,7 @@
         Title="Imitate Blend Animation"
         Width="400"
         Height="600"
-        Background="#FF312949"
+        Background="#FF39314C"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         Topmost="True">
@@ -18,71 +18,75 @@
     <Window.Resources>
         <DataTemplate x:Key="WorkSetTemplateKey"
                       DataType="{x:Type local:WorkSet}">
-            <StackPanel HorizontalAlignment="Stretch">
-                <StackPanel Orientation="Horizontal"
-                            HorizontalAlignment="Stretch">
-                    <TextBlock Text="{Binding Mass}"
-                               VerticalAlignment="Bottom"
-                               FontSize="24"
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="100" />
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Remove Set" />
+                    <TextBlock Grid.Column="1"
+                               Text="Set #1"
+                               Foreground="#FFA69CC7"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
                                FontWeight="Bold"
-                               Foreground="#FF51A8E1" />
-                    <TextBlock Margin="10,0,0,0"
-                               Padding="2"
-                               Text="kg"
-                               VerticalAlignment="Bottom"
-                               Foreground="#FFA59CC6"
-                               FontSize="16" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal"
+                               FontSize="36" />
+                    <CheckBox Grid.Column="2"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Style="{DynamicResource RoundCheckBoxStyle}"
+                              Background="Transparent"
+                              BorderBrush="White"
+                              BorderThickness="1.5" />
+                </Grid>
+                <StackPanel Grid.Row="1"
                             HorizontalAlignment="Stretch">
-                    <TextBlock Text="{Binding Reps}"
-                               VerticalAlignment="Bottom"
-                               FontSize="24"
-                               FontWeight="Bold"
-                               Foreground="#FF51A8E1" />
-                    <TextBlock Margin="10,0,0,0"
-                               Padding="2"
-                               Text="reps"
-                               VerticalAlignment="Bottom"
-                               Foreground="#FFA59CC6"
-                               FontSize="16" />
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center">
+                        <TextBlock Text="{Binding Mass}"
+                                   VerticalAlignment="Bottom"
+                                   FontSize="24"
+                                   FontWeight="Bold"
+                                   Foreground="#FF51A8E1" />
+                        <TextBlock Margin="10,0,0,0"
+                                   Padding="2"
+                                   Text="kg"
+                                   VerticalAlignment="Bottom"
+                                   Foreground="#FFA59CC6"
+                                   FontSize="16" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center">
+                        <TextBlock Text="{Binding Reps}"
+                                   VerticalAlignment="Bottom"
+                                   FontSize="24"
+                                   FontWeight="Bold"
+                                   Foreground="#FF51A8E1" />
+                        <TextBlock Margin="10,0,0,0"
+                                   Padding="2"
+                                   Text="reps"
+                                   VerticalAlignment="Bottom"
+                                   Foreground="#FFA59CC6"
+                                   FontSize="16" />
+                    </StackPanel>
                 </StackPanel>
-            </StackPanel>
+            </Grid>
         </DataTemplate>
     </Window.Resources>
-    <Grid Background="#FF4E4473">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100" />
-            <ColumnDefinition />
-            <ColumnDefinition Width="100" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="100" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <CheckBox Grid.Column="2"
-                  HorizontalAlignment="Center"
-                  VerticalAlignment="Center"
-                  Style="{DynamicResource RoundCheckBoxStyle}"
-                  Background="Transparent"
-                  BorderBrush="White"
-                  BorderThickness="1.5" />
-        <TextBlock Grid.Column="1"
-                   Text="Set #1"
-                   Foreground="#FFA69CC7"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontWeight="Bold"
-                   FontSize="36" />
-        <Button Content="Remove Set" />
-        <ListView x:Name="listView" Background="Transparent"
+    <Grid>
+        <ListView x:Name="listView"
                   ItemsSource="{Binding Sets}"
                   ItemTemplate="{DynamicResource WorkSetTemplateKey}"
-                  Grid.ColumnSpan="3"
-                  Grid.Row="1" />
-        <Image Margin="-628.338,-6.139,139.073,-24.861"
+                  HorizontalContentAlignment="Stretch"
+                  Background="Transparent" />
+        <Image Margin="-1014.338,0,525.073,-31"
                Source="blend-animation.gif"
-               Stretch="Fill"
-               Grid.RowSpan="2" />
+               Stretch="Fill" />
     </Grid>
 </Window>
