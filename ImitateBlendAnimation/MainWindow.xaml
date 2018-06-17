@@ -92,8 +92,9 @@
                     <Path Fill="#FF3DB57F">
                         <Path.Data>
                             <EllipseGeometry x:Name="ellipse"
-                                             RadiusX="300"
-                                             RadiusY="300" />
+                                             RadiusX="10"
+                                             RadiusY="10"
+                                             Center="350,30" />
                         </Path.Data>
                     </Path>
                 </Canvas>
