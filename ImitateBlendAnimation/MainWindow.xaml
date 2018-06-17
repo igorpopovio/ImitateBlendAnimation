@@ -49,10 +49,9 @@
                                   Margin="10"
                                   BorderBrush="White"
                                   BorderThickness="1.5" />
-
                     </Grid>
                     <StackPanel Grid.Row="1"
-                                Margin="0,0,0,0"
+                                Margin="0,0,0,5"
                                 HorizontalAlignment="Stretch"
                                 Background="#FF443A66">
                         <StackPanel Orientation="Horizontal"
@@ -87,14 +86,16 @@
                         </StackPanel>
                     </StackPanel>
                 </Grid>
-                <Canvas>
-                    <Ellipse x:Name="ellipse"
-                             Width="900"
-                             Height="900"
-                             Visibility="Collapsed"
-                             Fill="#FF3DB57F"
-                             ClipToBounds="True"
-                             Clip="{Binding Clip, ElementName=worksetGrid}"/>
+                <Canvas Visibility="Visible"
+                        ClipToBounds="True"
+                        Clip="{Binding Clip, ElementName=worksetGrid}">
+                    <Path Fill="#FF3DB57F">
+                        <Path.Data>
+                            <EllipseGeometry x:Name="ellipse"
+                                             RadiusX="300"
+                                             RadiusY="300" />
+                        </Path.Data>
+                    </Path>
                 </Canvas>
             </Grid>
         </DataTemplate>
