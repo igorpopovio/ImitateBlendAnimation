@@ -5,8 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ImitateBlendAnimation"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Imitate Blend Animation"
+        Width="400"
+        Height="600"
+        Background="#FF312949"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Topmost="True">
+    <Window.DataContext>
+        <local:MainViewModel />
+    </Window.DataContext>
+    <Window.Resources>
+        <DataTemplate x:Key="WorkSetTemplateKey"
+                      DataType="{x:Type local:WorkSet}">
+            <TextBlock Text="{Binding Mass}"
+                       Foreground="White" />
+        </DataTemplate>
+    </Window.Resources>
+    <Grid Background="Transparent">
+        <ListView Background="Transparent"
+                  ItemsSource="{Binding Sets}"
+                  ItemTemplate="{DynamicResource WorkSetTemplateKey}" />
+        <Image Margin="-656.642,0,450.642,121"
+               Source="blend-animation.gif"
+               Stretch="Fill" />
     </Grid>
 </Window>
