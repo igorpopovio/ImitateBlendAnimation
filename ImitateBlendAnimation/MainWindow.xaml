@@ -18,13 +18,47 @@
     <Window.Resources>
         <DataTemplate x:Key="WorkSetTemplateKey"
                       DataType="{x:Type local:WorkSet}">
+            <DataTemplate.Resources>
+                <Storyboard x:Key="WorksetCompleted">
+                    <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(EllipseGeometry.RadiusX)"
+                                                   Storyboard.TargetName="path">
+                        <EasingDoubleKeyFrame KeyTime="0"
+                                              Value="10" />
+                        <EasingDoubleKeyFrame KeyTime="0:0:0.5"
+                                              Value="500" />
+                    </DoubleAnimationUsingKeyFrames>
+                    <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(EllipseGeometry.RadiusY)"
+                                                   Storyboard.TargetName="path">
+                        <EasingDoubleKeyFrame KeyTime="0"
+                                              Value="10" />
+                        <EasingDoubleKeyFrame KeyTime="0:0:0.5"
+                                              Value="500" />
+                    </DoubleAnimationUsingKeyFrames>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)"
+                                                   Storyboard.TargetName="canvas">
+                        <DiscreteObjectKeyFrame KeyTime="0:0:0.5"
+                                                Value="{x:Static Visibility.Collapsed}" />
+                    </ObjectAnimationUsingKeyFrames>
+                    <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)"
+                                                  Storyboard.TargetName="grid">
+                        <DiscreteColorKeyFrame KeyTime="0:0:0.5"
+                                               Value="#FF3DB57F" />
+                    </ColorAnimationUsingKeyFrames>
+                    <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)"
+                                                   Storyboard.TargetName="stackPanel">
+                        <EasingDoubleKeyFrame KeyTime="0:0:0.5"
+                                              Value="0" />
+                    </DoubleAnimationUsingKeyFrames>
+                </Storyboard>
+            </DataTemplate.Resources>
             <Grid>
                 <Grid x:Name="worksetGrid">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="60" />
                         <RowDefinition />
                     </Grid.RowDefinitions>
-                    <Grid Background="#FF4E4473">
+                    <Grid x:Name="grid"
+                          Background="#FF4E4473">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition />
@@ -50,8 +84,10 @@
                                   BorderBrush="White"
                                   BorderThickness="1.5" />
                     </Grid>
-                    <StackPanel Grid.Row="1"
+                    <StackPanel x:Name="stackPanel"
+                                Grid.Row="1"
                                 Margin="0,0,0,5"
+                                Height="104"
                                 HorizontalAlignment="Stretch"
                                 Background="#FF443A66">
                         <StackPanel Orientation="Horizontal"
@@ -86,10 +122,12 @@
                         </StackPanel>
                     </StackPanel>
                 </Grid>
-                <Canvas Visibility="Visible"
+                <Canvas x:Name="canvas"
+                        Visibility="Visible"
                         ClipToBounds="True"
                         Clip="{Binding Clip, ElementName=worksetGrid}">
-                    <Path Fill="#FF3DB57F">
+                    <Path x:Name="path"
+                          Fill="#FF3DB57F">
                         <Path.Data>
                             <EllipseGeometry x:Name="ellipse"
                                              RadiusX="10"
