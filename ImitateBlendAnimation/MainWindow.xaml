@@ -63,7 +63,10 @@
         <CheckBox Grid.Column="2"
                   HorizontalAlignment="Center"
                   VerticalAlignment="Center"
-                  Style="{DynamicResource RoundCheckBoxStyle}" />
+                  Style="{DynamicResource RoundCheckBoxStyle}"
+                  Background="Transparent"
+                  BorderBrush="White"
+                  BorderThickness="1.5" />
         <TextBlock Grid.Column="1"
                    Text="Set #1"
                    Foreground="#FFA69CC7"
