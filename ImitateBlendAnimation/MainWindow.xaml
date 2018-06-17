@@ -19,71 +19,83 @@
         <DataTemplate x:Key="WorkSetTemplateKey"
                       DataType="{x:Type local:WorkSet}">
             <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="60" />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <Grid Background="#FF4E4473">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <Button Background="#FF7F77A4"
-                            Width="20"
-                            Height="5"
-                            Margin="10" />
-                    <TextBlock Grid.Column="1"
-                               Text="Set #1"
-                               Foreground="#FFA69CC7"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               FontWeight="Bold"
-                               FontSize="20" />
-                    <CheckBox Grid.Column="2"
-                              HorizontalAlignment="Center"
-                              VerticalAlignment="Center"
-                              Style="{DynamicResource RoundCheckBoxStyle}"
-                              Background="Transparent"
-                              Margin="10"
-                              BorderBrush="White"
-                              BorderThickness="1.5" />
+                <Grid x:Name="worksetGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid Background="#FF4E4473">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Button Background="#FF7F77A4"
+                                Width="20"
+                                Height="5"
+                                Margin="10" />
+                        <TextBlock Grid.Column="1"
+                                   Text="Set #1"
+                                   Foreground="#FFA69CC7"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   FontWeight="Bold"
+                                   FontSize="20" />
+                        <CheckBox Grid.Column="2"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  Style="{DynamicResource RoundCheckBoxStyle}"
+                                  Background="Transparent"
+                                  Margin="10"
+                                  BorderBrush="White"
+                                  BorderThickness="1.5" />
+
+                    </Grid>
+                    <StackPanel Grid.Row="1"
+                                Margin="0,0,0,0"
+                                HorizontalAlignment="Stretch"
+                                Background="#FF443A66">
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="0,10"
+                                    HorizontalAlignment="Center">
+                            <TextBlock Text="{Binding Mass}"
+                                       VerticalAlignment="Bottom"
+                                       FontSize="24"
+                                       FontWeight="Bold"
+                                       Foreground="#FF51A8E1" />
+                            <TextBlock Margin="10,0,0,0"
+                                       Padding="2"
+                                       Text="kg"
+                                       VerticalAlignment="Bottom"
+                                       Foreground="#FFA59CC6"
+                                       FontSize="16" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="0,10"
+                                    HorizontalAlignment="Center">
+                            <TextBlock Text="{Binding Reps}"
+                                       VerticalAlignment="Bottom"
+                                       FontSize="24"
+                                       FontWeight="Bold"
+                                       Foreground="#FF51A8E1" />
+                            <TextBlock Margin="10,0,0,0"
+                                       Padding="2"
+                                       Text="reps"
+                                       VerticalAlignment="Bottom"
+                                       Foreground="#FFA59CC6"
+                                       FontSize="16" />
+                        </StackPanel>
+                    </StackPanel>
                 </Grid>
-                <StackPanel Grid.Row="1"
-                            Margin="0,0,0,5"
-                            HorizontalAlignment="Stretch"
-                            Background="#FF443A66">
-                    <StackPanel Orientation="Horizontal"
-                                Margin="0,10"
-                                HorizontalAlignment="Center">
-                        <TextBlock Text="{Binding Mass}"
-                                   VerticalAlignment="Bottom"
-                                   FontSize="24"
-                                   FontWeight="Bold"
-                                   Foreground="#FF51A8E1" />
-                        <TextBlock Margin="10,0,0,0"
-                                   Padding="2"
-                                   Text="kg"
-                                   VerticalAlignment="Bottom"
-                                   Foreground="#FFA59CC6"
-                                   FontSize="16" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal"
-                                Margin="0,10"
-                                HorizontalAlignment="Center">
-                        <TextBlock Text="{Binding Reps}"
-                                   VerticalAlignment="Bottom"
-                                   FontSize="24"
-                                   FontWeight="Bold"
-                                   Foreground="#FF51A8E1" />
-                        <TextBlock Margin="10,0,0,0"
-                                   Padding="2"
-                                   Text="reps"
-                                   VerticalAlignment="Bottom"
-                                   Foreground="#FFA59CC6"
-                                   FontSize="16" />
-                    </StackPanel>
-                </StackPanel>
+                <Canvas>
+                    <Ellipse x:Name="ellipse"
+                             Width="900"
+                             Height="900"
+                             Visibility="Collapsed"
+                             Fill="#FF3DB57F"
+                             ClipToBounds="True"
+                             Clip="{Binding Clip, ElementName=worksetGrid}"/>
+                </Canvas>
             </Grid>
         </DataTemplate>
     </Window.Resources>
