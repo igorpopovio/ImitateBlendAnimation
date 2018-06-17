@@ -18,8 +18,36 @@
     <Window.Resources>
         <DataTemplate x:Key="WorkSetTemplateKey"
                       DataType="{x:Type local:WorkSet}">
-            <TextBlock Text="{Binding Mass}"
-                       Foreground="White" />
+            <StackPanel HorizontalAlignment="Stretch">
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Stretch">
+                    <TextBlock Text="{Binding Mass}"
+                               VerticalAlignment="Bottom"
+                               FontSize="24"
+                               FontWeight="Bold"
+                               Foreground="#FF51A8E1" />
+                    <TextBlock Margin="10,0,0,0"
+                               Padding="2"
+                               Text="kg"
+                               VerticalAlignment="Bottom"
+                               Foreground="#FFA59CC6"
+                               FontSize="16" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Stretch">
+                    <TextBlock Text="{Binding Reps}"
+                               VerticalAlignment="Bottom"
+                               FontSize="24"
+                               FontWeight="Bold"
+                               Foreground="#FF51A8E1" />
+                    <TextBlock Margin="10,0,0,0"
+                               Padding="2"
+                               Text="reps"
+                               VerticalAlignment="Bottom"
+                               Foreground="#FFA59CC6"
+                               FontSize="16" />
+                </StackPanel>
+            </StackPanel>
         </DataTemplate>
     </Window.Resources>
     <Grid Background="Transparent">
