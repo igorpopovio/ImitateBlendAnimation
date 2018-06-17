@@ -50,12 +50,36 @@
             </StackPanel>
         </DataTemplate>
     </Window.Resources>
-    <Grid Background="Transparent">
-        <ListView Background="Transparent"
+    <Grid Background="#FF4E4473">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="100" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <CheckBox Grid.Column="2"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  Style="{DynamicResource RoundCheckBoxStyle}" />
+        <TextBlock Grid.Column="1"
+                   Text="Set #1"
+                   Foreground="#FFA69CC7"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontWeight="Bold"
+                   FontSize="36" />
+        <Button Content="Remove Set" />
+        <ListView x:Name="listView" Background="Transparent"
                   ItemsSource="{Binding Sets}"
-                  ItemTemplate="{DynamicResource WorkSetTemplateKey}" />
-        <Image Margin="-656.642,0,450.642,121"
+                  ItemTemplate="{DynamicResource WorkSetTemplateKey}"
+                  Grid.ColumnSpan="3"
+                  Grid.Row="1" />
+        <Image Margin="-628.338,-6.139,139.073,-24.861"
                Source="blend-animation.gif"
-               Stretch="Fill" />
+               Stretch="Fill"
+               Grid.RowSpan="2" />
     </Grid>
 </Window>
