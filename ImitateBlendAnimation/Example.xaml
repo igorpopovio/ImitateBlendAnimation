@@ -1,0 +1,102 @@
+﻿<Window x:Class="ImitateBlendAnimation.Example"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ImitateBlendAnimation"
+        mc:Ignorable="d"
+        Title="Example"
+        Height="450"
+        Width="800">
+    <Grid Background="#FF4E4473">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="100" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Image Margin="-628.338,-6.139,139.073,-24.861"
+               Source="blend-animation.gif"
+               Stretch="Fill"
+               Grid.RowSpan="2" />
+        <StackPanel Grid.ColumnSpan="3"
+                    Grid.Row="1"
+                    Background="#FF443A66">
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+                <TextBlock Margin="0,10,0,0"
+                           TextWrapping="Wrap"
+                           Text="155"
+                           VerticalAlignment="Top"
+                           Width="71.523"
+                           FontSize="24"
+                           Foreground="#FF51A8E1"
+                           FontWeight="Bold" />
+                <TextBlock Height="20"
+                           Margin="0,10,0,0"
+                           TextWrapping="Wrap"
+                           Text="kg"
+                           VerticalAlignment="Bottom"
+                           Width="40.231"
+                           Foreground="#FFA59CC6"
+                           FontSize="16" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="340.123,0">
+                <TextBlock Margin="0,10,0,0"
+                           TextWrapping="Wrap"
+                           Text="155"
+                           VerticalAlignment="Top"
+                           Width="71.523"
+                           FontSize="24"
+                           Foreground="#FF51A8E1"
+                           FontWeight="Bold" />
+                <TextBlock Height="20"
+                           Margin="0,10,0,0"
+                           TextWrapping="Wrap"
+                           Text="kg"
+                           VerticalAlignment="Bottom"
+                           Width="40.231"
+                           Foreground="#FFA59CC6"
+                           FontSize="16" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="340.123,0">
+                <TextBlock Margin="0,10,0,0"
+                           TextWrapping="Wrap"
+                           Text="155"
+                           VerticalAlignment="Top"
+                           Width="71.523"
+                           FontSize="24"
+                           Foreground="#FF51A8E1"
+                           FontWeight="Bold" />
+                <TextBlock Height="20"
+                           Margin="0,10,0,0"
+                           TextWrapping="Wrap"
+                           Text="kg"
+                           VerticalAlignment="Bottom"
+                           Width="40.231"
+                           Foreground="#FFA59CC6"
+                           FontSize="16" />
+            </StackPanel>
+        </StackPanel>
+        <CheckBox Grid.Column="2"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  Style="{DynamicResource RoundCheckBoxStyle}" />
+        <Button Content="Button" />
+        <TextBlock Grid.Column="1"
+                   TextWrapping="Wrap"
+                   Text="Set #1"
+                   Foreground="#FFA69CC7"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontWeight="Bold"
+                   FontSize="36" />
+    </Grid>
+</Window>
