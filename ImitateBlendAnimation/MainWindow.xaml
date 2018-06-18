@@ -18,7 +18,15 @@
         <DataTemplate x:Key="WorkSetTemplateKey"
                       DataType="{x:Type local:WorkSet}">
             <Grid>
-                <Grid.Resources></Grid.Resources>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="WorksetState">
+                        <VisualStateGroup.Transitions>
+                            <VisualTransition GeneratedDuration="0:0:0.3" />
+                        </VisualStateGroup.Transitions>
+                        <VisualState x:Name="InProgress" />
+                        <VisualState x:Name="Completed" />
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
                 <Grid x:Name="worksetGrid">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="60" />
