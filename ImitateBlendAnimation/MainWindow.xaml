@@ -43,6 +43,7 @@
                                    FontWeight="Bold"
                                    FontSize="20" />
                         <CheckBox Grid.Column="2"
+                                  IsChecked="{Binding IsComplete}"
                                   HorizontalAlignment="Center"
                                   VerticalAlignment="Center"
                                   Style="{DynamicResource RoundCheckBoxStyle}"
