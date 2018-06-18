@@ -18,39 +18,7 @@
         <DataTemplate x:Key="WorkSetTemplateKey"
                       DataType="{x:Type local:WorkSet}">
             <Grid>
-                <Grid.Resources>
-                    <Storyboard x:Key="WorksetCompleted">
-                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(EllipseGeometry.RadiusX)"
-                                                       Storyboard.TargetName="path">
-                            <EasingDoubleKeyFrame KeyTime="0"
-                                                  Value="10" />
-                            <EasingDoubleKeyFrame KeyTime="0:0:0.5"
-                                                  Value="500" />
-                        </DoubleAnimationUsingKeyFrames>
-                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(EllipseGeometry.RadiusY)"
-                                                       Storyboard.TargetName="path">
-                            <EasingDoubleKeyFrame KeyTime="0"
-                                                  Value="10" />
-                            <EasingDoubleKeyFrame KeyTime="0:0:0.5"
-                                                  Value="500" />
-                        </DoubleAnimationUsingKeyFrames>
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)"
-                                                       Storyboard.TargetName="canvas">
-                            <DiscreteObjectKeyFrame KeyTime="0:0:0.5"
-                                                    Value="{x:Static Visibility.Collapsed}" />
-                        </ObjectAnimationUsingKeyFrames>
-                        <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)"
-                                                      Storyboard.TargetName="grid">
-                            <DiscreteColorKeyFrame KeyTime="0:0:0.5"
-                                                   Value="#FF3DB57F" />
-                        </ColorAnimationUsingKeyFrames>
-                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)"
-                                                       Storyboard.TargetName="stackPanel">
-                            <EasingDoubleKeyFrame KeyTime="0:0:0.5"
-                                                  Value="0" />
-                        </DoubleAnimationUsingKeyFrames>
-                    </Storyboard>
-                </Grid.Resources>
+                <Grid.Resources></Grid.Resources>
                 <Grid x:Name="worksetGrid">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="60" />
@@ -81,13 +49,7 @@
                                   Background="Transparent"
                                   Margin="10"
                                   BorderBrush="White"
-                                  BorderThickness="1.5">
-                            <i:Interaction.Triggers>
-                                <i:EventTrigger EventName="Checked">
-                                    <ei:ControlStoryboardAction Storyboard="{StaticResource WorksetCompleted}" />
-                                </i:EventTrigger>
-                            </i:Interaction.Triggers>
-                        </CheckBox>
+                                  BorderThickness="1.5" />
                     </Grid>
                     <StackPanel x:Name="stackPanel"
                                 Grid.Row="1"
