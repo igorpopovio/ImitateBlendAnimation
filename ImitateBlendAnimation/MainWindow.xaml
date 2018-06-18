@@ -135,8 +135,8 @@
                           Fill="#FF3DB57F">
                         <Path.Data>
                             <EllipseGeometry x:Name="ellipse"
-                                             RadiusX="10"
-                                             RadiusY="10"
+                                             RadiusX="0"
+                                             RadiusY="0"
                                              Center="350,30" />
                         </Path.Data>
                     </Path>
