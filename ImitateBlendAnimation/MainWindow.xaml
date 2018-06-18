@@ -20,11 +20,25 @@
             <Grid>
                 <VisualStateManager.VisualStateGroups>
                     <VisualStateGroup x:Name="WorksetState">
-                        <VisualStateGroup.Transitions>
-                            <VisualTransition GeneratedDuration="0:0:0.3" />
-                        </VisualStateGroup.Transitions>
                         <VisualState x:Name="InProgress" />
-                        <VisualState x:Name="Completed" />
+                        <VisualState x:Name="Completed">
+                            <Storyboard>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(EllipseGeometry.RadiusX)"
+                                                               Storyboard.TargetName="path">
+                                    <EasingDoubleKeyFrame KeyTime="0"
+                                                          Value="0" />
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.3"
+                                                          Value="400" />
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(EllipseGeometry.RadiusY)"
+                                                               Storyboard.TargetName="path">
+                                    <EasingDoubleKeyFrame KeyTime="0"
+                                                          Value="0" />
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.3"
+                                                          Value="400" />
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </VisualState>
                     </VisualStateGroup>
                 </VisualStateManager.VisualStateGroups>
                 <Grid x:Name="worksetGrid">
@@ -58,7 +72,13 @@
                                   Background="Transparent"
                                   Margin="10"
                                   BorderBrush="White"
-                                  BorderThickness="1.5" />
+                                  BorderThickness="1.5">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Checked">
+                                    <ei:GoToStateAction StateName="Completed" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </CheckBox>
                     </Grid>
                     <StackPanel x:Name="stackPanel"
                                 Grid.Row="1"
